@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodePen Editor Settings</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        nav button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            flex: 1;
+        }
+
+        section {
+            display: none;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>CodePen Editor Settings</h1>
+    </header>
+
+    <main>
+
+        <!-- Tabs -->
+        <nav>
+            <button onclick="showTab('html')">HTML</button>
+            <button onclick="showTab('css')">CSS</button>
+            <button onclick="showTab('js')">JS</button>
+            <button onclick="showTab('penDetails')">Pen Details</button>
+            <button onclick="showTab('privacyPro')">Privacy PRO</button>
+            <button onclick="showTab('behavior')">Behavior</button>
+            <button onclick="showTab('editor')">Editor</button>
+            <button onclick="showTab('template')">Template</button>
+            <button onclick="showTab('screenshotPro')">Screenshot PRO</button>
+        </nav>
+
+        <!-- Content Sections -->
+        <section id="html" class="active">
+            <h2>HTML</h2>
+            <label for="htmlPreprocessor">HTML Preprocessor:</label>
+            <select id="htmlPreprocessor" name="htmlPreprocessor">
+                <option value="none">None</option>
+                <option value="pug">Pug</option>
+                <option value="haml">Haml</option>
+                <!-- Add more options as needed -->
+            </select>
+
+            <label for="addClasses">Add Class(es) to &lt;html&gt;:</label>
+            <input type="text" id="addClasses" name="addClasses" placeholder="e.g. single post post-1234">
+
+            <label for="stuffForHead">Stuff for &lt;head&gt;:</label>
+            <textarea id="stuffForHead" name="stuffForHead" placeholder="e.g. &lt;meta&gt;, &lt;link&gt;, &lt;script&gt;"></textarea>
+
+            <label for="commonViewportTag">Insert the most common viewport meta tag:</label>
+            <button onclick="insertCommonViewportTag()">Insert</button>
+        </section>
+
+        <!-- Other sections ... -->
+
+    </main>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show the selected section
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        function insertCommonViewportTag() {
+            // Logic to insert the common viewport meta tag
+            alert('Inserted the most common viewport meta tag!');
+        }
+    </script>
+
+</body>
+</html>
